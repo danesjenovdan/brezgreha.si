@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: brezgreha-deployment
+  labels:
+    app: brezgreha
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: brezgreha
+  template:
+    metadata:
+      labels:
+        app: brezgreha
+    spec:
+      containers:
+      - name: brezgreha
+        image: rg.fr-par.scw.cloud/djnd/brezgreha:latest
+        ports:
+        - containerPort: 80

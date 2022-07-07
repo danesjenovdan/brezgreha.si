@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="theme-color" content="#008445">
+
+    <meta property="fb:app_id" content="301375193309601">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Si brez greha?">
+    <meta property="og:description"
+        content="Ne spodbujaš gospodarskega kriminala, ne treš jajc sodnikom in ne privatiziraš vodnih virov? Vrzi virtualen kamen v Vizjaka!">
+    <meta property="og:image" content="https://brezgreha.si/img/og.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Si brez greha?">
+    <meta name="twitter:description"
+        content="Ne spodbujaš gospodarskega kriminala, ne treš jajc sodnikom in ne privatiziraš vodnih virov? Vrzi virtualen kamen v Vizjaka!">
+    <meta name="twitter:image" content="https://brezgreha.si/img/og.png">
+
+    <meta name="author" content="Danes je nov dan">
+    <meta name="description"
+        content="Ne spodbujaš gospodarskega kriminala, ne treš jajc sodnikom in ne privatiziraš vodnih virov? Vrzi virtualen kamen v Vizjaka!">
+    <title>Si brez greha?</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,500,700,900&amp;subset=latin-ext">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2c2e35">
+    <meta name="msapplication-TileColor" content="#2c2e35">
+    <meta name="theme-color" content="#ffffff">
+
+    <style>
+        @font-face {
+            font-family: 'middleagesdeco';
+            src: url('middleagesdeco.woff2') format('woff2'),
+                url('middleagesdeco.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+
+        }
+
+        @font-face {
+            font-family: 'underdog';
+            src: url('underdog.woff2') format('woff2'),
+                url('underdog.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            font-family: 'middleagesdeco';
+        }
+
+        #canvas {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        #counter {
+            pointer-events: none;
+            position: fixed;
+            top: calc(50vh - 20px);
+            left: calc(50vw - 150px);
+            color: #ffffff;
+            font-size: 40px;
+            width: 300px;
+            height: 80px;
+            line-height: 50px;
+            text-align: center;
+            visibility: hidden;
+            /* font-family: Arial, Helvetica, sans-serif; */
+            animation: shake 0.5s;
+            animation-iteration-count: infinite;
+        }
+
+        #counter-number {
+            font-weight: bold;
+            font-family: 'underdog';
+            font-size: 80px;
+            line-height: 100px;
+        }
+
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100vw;
+            background-color: #2c2e35;
+            color: #ffffff;
+            padding: 30px;
+            padding-top: 100px;
+            transition: all 0.56s ease-in;
+        }
+
+        #overlay h1,
+        #overlay p {
+            max-width: 400px;
+            position: relative;
+            margin: auto;
+        }
+
+        h1,
+        p {
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 50px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6em;
+            font-family: 'underdog';
+        }
+
+        @media (max-width: 767px) {
+            #overlay {
+                padding-top: 30px;
+            }
+
+            h1 {
+                font-size: 30px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+        }
+
+        #kamen {
+            width: 120px;
+            height: 120px;
+            border: none;
+            box-shadow: none;
+            background-color: transparent;
+            background-image: url('img/k1.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            display: block;
+            position: relative;
+            margin: auto;
+            margin-top: 40px;
+        }
+
+        #kamen:hover {
+            animation: shake 0.5s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translate(1px, 1px) rotate(0deg);
+            }
+
+            10% {
+                transform: translate(-1px, -2px) rotate(-1deg);
+            }
+
+            20% {
+                transform: translate(-3px, 0px) rotate(1deg);
+            }
+
+            30% {
+                transform: translate(3px, 2px) rotate(0deg);
+            }
+
+            40% {
+                transform: translate(1px, -1px) rotate(1deg);
+            }
+
+            50% {
+                transform: translate(-1px, 2px) rotate(-1deg);
+            }
+
+            60% {
+                transform: translate(-3px, 1px) rotate(0deg);
+            }
+
+            70% {
+                transform: translate(3px, 1px) rotate(-1deg);
+            }
+
+            80% {
+                transform: translate(-1px, -1px) rotate(1deg);
+            }
+
+            90% {
+                transform: translate(1px, 2px) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(1px, -2px) rotate(-1deg);
+            }
+        }
+    </style>
+    <script async defer data-domain="brezgreha.si" src="https://plausible.lb.djnd.si/js/plausible.js"></script>
+    <script>
+        window.plausible = window.plausible || function () {
+            (window.plausible.q = window.plausible.q || []).push(arguments)
+        }
+    </script>
+    <script src="matter.js"></script>
+</head>
+
+<body>
+    <div id="canvas"></div>
+    <div id="counter">Vseh vrženih kamnov:<br /><span id="counter-number"></span></div>
+    <div id="overlay">
+        <h1>Kdor je brez greha, naj prvi vrže kamen!</h1>
+        <p>Minister Vizjak v obrambi svojih koruptivnih praks pravi, da naj vanj prvi vrže kamen tisti, ki je brez
+            greha. Ker pri tem spodbuja napad na uradno osebo, smo razvili orodje, s katerim ga lahko uslišite, a se
+            izognete nasilju in kazni.</p>
+        <p>Če torej še niste spodbujali gospodarskega kriminala in utaje davkov, trli jajc sodnikom, privatizirali
+            javnih vodnih virov ali oškodovali davkoplačevalskega denarja, potem vrzite virtualen kamen v virtualnega Vizjaka!</p>
+        <button id="kamen" onclick="startGame()"></button>
+        <p style="text-align: center; margin-top: 80px;"><a style="color: #ffffff; text-decoration: underline;" href="https://danesjenovdan.si/doniraj/placaj/enkrat" target="_blank">Podpri Danes je nov dan</a></p>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>

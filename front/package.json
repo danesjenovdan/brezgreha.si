@@ -1,0 +1,11 @@
+{
+  "name": "brezgreha.si",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "Danes je nov dan",
+  "license": "The Unlicense",
+  "private": false,
+  "dependencies": {
+    "matter-js": "^0.17.1"
+  }
+}

@@ -1,0 +1,45 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: brezgreha
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-production"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - brezgreha.lb.djnd.si
+        - brezgreha.si
+        - www.brezgreha.si
+      secretName: brezgreha-tls
+  rules:
+    - host: brezgreha.lb.djnd.si
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: brezgreha
+                port:
+                  number: 80
+    - host: brezgreha.si
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: brezgreha
+                port:
+                  number: 80
+    - host: www.brezgreha.si
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: brezgreha
+                port:
+                  number: 80

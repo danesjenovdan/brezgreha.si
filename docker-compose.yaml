@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  flask:
+    build: ./counter
+    ports:
+      - 5000:5000
+    volumes:
+      - ./counter:/app
+    environment:
+      FLASK_ENV: production
+    # entrypoint: ./run.sh
+    command: flask run --host=0.0.0.0
