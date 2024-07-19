@@ -15,25 +15,24 @@ spec:
         app: counter
     spec:
       containers:
-      - name: counter
-        image: counter # kustomize thing
-        ports:
-        - name: http
-          containerPort: 5000
-          protocol: TCP
-        livenessProbe:
-          tcpSocket:
-            port: http
-          initialDelaySeconds: 10
-          periodSeconds: 15
-        env:
-          -
-            name: FLASK_ENV
-            value: production
-        resources:
-          requests:
-            memory: 200Mi
-            cpu: 100m
-          limits:
-            memory: 200Mi
-            cpu: 100m
+        - name: counter
+          image: counter
+          ports:
+            - name: http
+              containerPort: 5000
+              protocol: TCP
+          livenessProbe:
+            tcpSocket:
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 15
+          env:
+            - name: FLASK_ENV
+              value: production
+          resources:
+            requests:
+              memory: 200Mi
+              cpu: 100m
+            limits:
+              memory: 200Mi
+              cpu: 100m

@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: brezgreha-deployment
+  name: brezgreha
   labels:
     app: brezgreha
 spec:
@@ -15,7 +15,7 @@ spec:
         app: brezgreha
     spec:
       containers:
-      - name: brezgreha
-        image: rg.fr-par.scw.cloud/djnd/brezgreha:latest
-        ports:
-        - containerPort: 80
+        - name: brezgreha
+          image: brezgreha
+          ports:
+            - containerPort: 80

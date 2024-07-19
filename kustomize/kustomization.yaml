@@ -2,16 +2,16 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: brezgreha
 resources:
-  - deployment.yaml
-  - service.yaml
-  - ingress.yaml
+  - front/deployment.yaml
+  - front/service.yaml
+  - front/ingress.yaml
   - counter/deployment.yaml
   - counter/service.yaml
   - counter/ingress.yaml
 images:
   - name: brezgreha
     newName: rg.fr-par.scw.cloud/djnd/brezgreha
-    newTag: 'latest'
+    newTag: "latest"
   - name: counter
     newName: rg.fr-par.scw.cloud/djnd/counter
-    newTag: 'latest'
+    newTag: "latest"

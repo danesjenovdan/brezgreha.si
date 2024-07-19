@@ -8,12 +8,11 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-        - brezgreha.lb.djnd.si
-        - brezgreha.si
-        - www.brezgreha.si
+        - brezgreha.djnd.si
+        - brezgreha.danesjenovdan.si
       secretName: brezgreha-tls
   rules:
-    - host: brezgreha.lb.djnd.si
+    - host: brezgreha.djnd.si
       http:
         paths:
           - path: /
@@ -23,17 +22,7 @@ spec:
                 name: brezgreha
                 port:
                   number: 80
-    - host: brezgreha.si
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: brezgreha
-                port:
-                  number: 80
-    - host: www.brezgreha.si
+    - host: brezgreha.danesjenovdan.si
       http:
         paths:
           - path: /
