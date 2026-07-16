@@ -4,16 +4,14 @@ metadata:
   name: counter
   annotations:
     cert-manager.io/cluster-issuer: "letsencrypt-production"
-    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
-    nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
 spec:
-  ingressClassName: nginx
+  ingressClassName: traefik
   tls:
     - hosts:
-        - counter.lb.djnd.si
+        - counter.djnd.si
       secretName: counter-tls
   rules:
-    - host: counter.lb.djnd.si
+    - host: counter.djnd.si
       http:
         paths:
           - path: /

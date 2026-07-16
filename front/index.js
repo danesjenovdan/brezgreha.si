@@ -60,7 +60,7 @@ function createKamen(image) {
     });
     return kamen;
 }
-let kamen;  
+let kamen;
 
 function createMouse() {
     const mouse = Matter.Mouse.create(render.canvas);
@@ -88,7 +88,7 @@ let hit = false;
 
 function didVirtualniVizjakAndKamenCollide(pairsList) {
     let foundPair = false;
-    
+
     pairsList.forEach((pair) => {
         foundPair = pair.id.includes(kamen.id.toString()) && pair.id.includes(virtualniVizjak.id.toString());
         if (foundPair) {
@@ -136,7 +136,7 @@ Matter.Events.on(engine, "afterUpdate", function(event) {
     if (event.source.pairs.list.length > 0) {
         if (didVirtualniVizjakAndKamenCollide(event.source.pairs.list) && !hit) {
             hit = true;
-            fetch('https://counter.lb.djnd.si/', {
+            fetch('https://counter.djnd.si/', {
                 method: 'POST',
             })
             .then(response => response.json())
