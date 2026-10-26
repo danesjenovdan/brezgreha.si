@@ -11,7 +11,7 @@ resources:
 images:
   - name: brezgreha
     newName: rg.fr-par.scw.cloud/djnd/brezgreha
-    newTag: 'dae4456256538c926ff44b0607a51470fce77a09'
+    newTag: '35adaee6e3d37c57f58b180dcebec8b0e8ca353c'
   - name: counter
     newName: rg.fr-par.scw.cloud/djnd/counter
-    newTag: 'dae4456256538c926ff44b0607a51470fce77a09'
+    newTag: '35adaee6e3d37c57f58b180dcebec8b0e8ca353c'
